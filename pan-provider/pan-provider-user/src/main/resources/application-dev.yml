@@ -1,0 +1,37 @@
+server:
+  port: 8001
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/ttsf?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  redis:
+    database: 0
+    host: 192.168.9.151
+    port: 6379
+    password: redisroot
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://140.143.154.143:8761/eureka/
+logging:
+  level:  
+    com:
+      pan:
+        user:
+          mapper: debug

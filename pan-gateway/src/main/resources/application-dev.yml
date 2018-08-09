@@ -1,0 +1,33 @@
+server:
+  port: 1000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.9.151:8761/eureka/
+zuul:
+  add-host-header: true
+  ignored-services: '*'
+  retryable: true
+  routes:
+   api-user:
+      path: /user/**
+      serviceId:  bc-provider-user
+   api-user-role:
+      path: /userRole/**
+      serviceId:  bc-provider-user-role
+   api-company:
+      path: /company/**
+      serviceId:  bc-provider-company
+   api-company-employee:
+      path: /companyEmployee/**
+      serviceId:  bc-provider-company-employee
+   api-company-role:
+      path: /companyRole/**
+      serviceId:  bc-provider-company-role
+   api-provider-project:
+      path: /providerProject/**
+      serviceId:  bc-provider-project
+   api-provider-project-model:
+      path: /providerProjectModel/**
+      serviceId:  bc-provider-project-model
+ 
