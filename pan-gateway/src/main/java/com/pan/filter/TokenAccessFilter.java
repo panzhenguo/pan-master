@@ -27,14 +27,13 @@ public class TokenAccessFilter extends ZuulFilter {
 		boolean isIgnoresFlag = isIgnoresFlag(request);
 		Object accessToken = request.getParameter("token");
 		if (accessToken == null&&!isIgnoresFlag) {
+			
 			try {
 				//验证token
-				if(checkToke()) {
 					log.error("token is error ");
 					ctx.setSendZuulResponse(false);
 					ctx.setResponseStatusCode(401);
 					ctx.getResponse().getWriter().write("token is empty");
-				}
 			} catch (Exception e) {
 			}
 			return null;

@@ -1,9 +1,12 @@
 package com.pan.user.provider.api.service;
 
+import javax.print.attribute.standard.Media;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pan.core.MediaType;
 import com.pan.core.Result;
 import com.pan.user.model.domain.UserInfo;
 import com.pan.user.model.vo.UserInfoVo;
@@ -19,7 +22,7 @@ import com.pan.user.model.vo.UserInfoVo;
  * @Date 2018年7月24日下午12:52:03
  * @Version V1.0
  */
-@RequestMapping("/userInfo")
+@RequestMapping(value="/userInfo",params=MediaType.JSON_UTF_8)
 public interface UserInfoServiceApi {
 
 	/**
