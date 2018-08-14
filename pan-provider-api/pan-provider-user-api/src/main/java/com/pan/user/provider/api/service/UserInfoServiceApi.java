@@ -22,7 +22,7 @@ import com.pan.user.model.vo.UserInfoVo;
  * @Date 2018年7月24日下午12:52:03
  * @Version V1.0
  */
-@RequestMapping(value="/userInfo",params=MediaType.JSON_UTF_8)
+@RequestMapping(value="/userInfo",produces=MediaType.JSON_UTF_8)
 public interface UserInfoServiceApi {
 
 	/**
