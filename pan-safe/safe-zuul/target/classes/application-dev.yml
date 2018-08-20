@@ -11,5 +11,6 @@ zuul:
   routes:
    api-user:
       path: /user/**
-      serviceId:  pan-provider-user
+      url: http://140.143.154.143:8001
+      #serviceId:  pan-provider-user 通过服务名 配置 
  

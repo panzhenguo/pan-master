@@ -1,9 +1,14 @@
 package com.pan.filter;
 
+import java.net.InetAddress;
+
 import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+import com.pan.filter.conf.FilterIgnoresConf;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,34 +16,51 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class TokenAccessFilter extends ZuulFilter {
 	
-//	@Autowired
-//	private FilterIgnoresConf filterIgnores;
+	@Autowired
+	private FilterIgnoresConf filterIgnores;
 
 	/**
 	 * 过滤器的逻辑
 	 */
 	@Override
 	public Object run() {
+		
+		try {
+
+			 InetAddress addr = InetAddress.getLocalHost();  
+	         String ip=addr.getHostAddress().toString(); //获取本机ip  
+	         String hostName=addr.getHostName().toString(); //获取本机计算机名称  
+	         System.out.println(ip);
+	         System.out.println(hostName);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
 		log.info("send {} request to{}", request.getMethod(),
 				request.getRequestURL().toString());
-		// 判断 该链接的状态
+		//改地址是否跳过
 		boolean isIgnoresFlag = isIgnoresFlag(request);
-		Object accessToken = request.getParameter("token");
-		if (accessToken == null&&!isIgnoresFlag) {
+		//验证token 合法性
+		boolean tokenIsTtue = checkToke(request.getParameter("token"));
+		
+		if(isIgnoresFlag) {
 			
-			try {
-				//验证token
+		}else {
+			if (!tokenIsTtue||isIgnoresFlag) {
+				try {
 					log.error("token is error ");
 					ctx.setSendZuulResponse(false);
 					ctx.setResponseStatusCode(401);
 					ctx.getResponse().getWriter().write("token is empty");
-			} catch (Exception e) {
+				} catch (Exception e) {
+				}
+				return null;
 			}
-			return null;
 		}
-		log.info("token is  ok");
+		log.info("token is  ok    " +filterIgnores.getIgnores());
 		return null;
 	}
 	
@@ -50,8 +72,8 @@ public class TokenAccessFilter extends ZuulFilter {
 	 * @Author ttsf-pzg
 	 * @return
 	 */
-	private boolean checkToke() {
-		return false;
+	private boolean checkToke(Object token) {
+		return true;
 	}
 
 	/**
@@ -64,15 +86,16 @@ public class TokenAccessFilter extends ZuulFilter {
 	 * @return
 	 */
 	private boolean isIgnoresFlag(HttpServletRequest request) {
-		// 获取忽略地址filterIgnores.getIgnores().split(",");
-//    	String[] ignoreArray =   null;
-//		if(ignoreArray!=null) {
-//			 for(int i=0;i<ignoreArray.length;i++){
-//				if(request.getRequestURL().toString().contains(ignoreArray[i])){
-//	        		return  true;
-//	            }
-//			 }
-//		}
+		// 获取忽略地址
+    	String[] ignoreArray =  filterIgnores.getIgnores().split(",");
+		if(ignoreArray!=null) {
+			 for(int i=0;i<ignoreArray.length;i++){
+				if(request.getRequestURL().toString().contains(ignoreArray[i])){
+					log.info("这是一个不需要验证的请求!!!");
+	        		return  true;
+	            }
+			 }
+		}
 		return false;
 	}
 

@@ -28,6 +28,9 @@
 		<module>pan-provider-api</module>
 		<module>pan-provider</module>
 		<module>pan-gateway</module>
+		<module>pan-safe</module>
+		<module>pan-monitor</module>
+		<module>pan-server</module>
 	</modules>
 
 	<dependencies>
@@ -36,7 +39,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
 		</dependency>
 		<!--阿里 FastJson依赖 -->
 		<dependency>

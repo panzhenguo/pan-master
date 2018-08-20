@@ -1,0 +1,16 @@
+server:
+  port: 1000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://140.143.154.143:8761/eureka/
+zuul:
+  add-host-header: true
+  ignored-services: '*'
+  retryable: true
+  routes:
+   api-user:
+      path: /user/**
+      url: http://140.143.154.143:8001
+      #serviceId:  pan-provider-user 通过服务名 配置 
+ 
