@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common-core" />
+        <module name="common-utils" />
+        <module name="pan-provider-user" />
+        <module name="pan-provider-user-api" />
+        <module name="safe-zuul" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common-core" target="1.8" />
+      <module name="common-utils" target="1.8" />
+      <module name="pan-common" target="1.8" />
+      <module name="pan-master" target="1.8" />
+      <module name="pan-monitor" target="1.8" />
+      <module name="pan-provider" target="1.8" />
+      <module name="pan-provider-api" target="1.8" />
+      <module name="pan-provider-user" target="1.8" />
+      <module name="pan-provider-user-api" target="1.8" />
+      <module name="pan-safe" target="1.8" />
+      <module name="pan-server" target="1.8" />
+      <module name="safe-zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

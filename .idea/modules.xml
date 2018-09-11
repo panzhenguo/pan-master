@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/pan-common/common-core/common-core.iml" filepath="$PROJECT_DIR$/pan-common/common-core/common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-common/common-utils/common-utils.iml" filepath="$PROJECT_DIR$/pan-common/common-utils/common-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-common/pan-common.iml" filepath="$PROJECT_DIR$/pan-common/pan-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-master.iml" filepath="$PROJECT_DIR$/pan-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-monitor/pan-monitor.iml" filepath="$PROJECT_DIR$/pan-monitor/pan-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-provider/pan-provider.iml" filepath="$PROJECT_DIR$/pan-provider/pan-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-provider-api/pan-provider-api.iml" filepath="$PROJECT_DIR$/pan-provider-api/pan-provider-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-provider/pan-provider-user/pan-provider-user.iml" filepath="$PROJECT_DIR$/pan-provider/pan-provider-user/pan-provider-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-provider-api/pan-provider-user-api/pan-provider-user-api.iml" filepath="$PROJECT_DIR$/pan-provider-api/pan-provider-user-api/pan-provider-user-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-safe/pan-safe.iml" filepath="$PROJECT_DIR$/pan-safe/pan-safe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-server/pan-server.iml" filepath="$PROJECT_DIR$/pan-server/pan-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pan-safe/safe-zuul/safe-zuul.iml" filepath="$PROJECT_DIR$/pan-safe/safe-zuul/safe-zuul.iml" />
+    </modules>
+  </component>
+</project>
